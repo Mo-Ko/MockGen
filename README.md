@@ -82,7 +82,8 @@ Access the MockGen UI at `http://localhost:5173`.
 
 ```bash
 # This will build and run the services, but dynamic mocks will return 404.
-docker-compose up --build```
+docker-compose up --build
+```
 ---
 
 ## 📚 In-Depth Documentation
