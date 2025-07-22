@@ -1,228 +1,112 @@
 <p align="center">
   <img src="https://raw.githubusercontent.com/Mo-Ko/MockGen/main/docs/logo.png" alt="MockGen Logo" width="120"/>
 </p>
-<h1 align="center">MockGen: AI-Powered Mock API Generator</h1>
+<h1 align="center">MockGen: AI-Powered REST & GraphQL Mock API Generator</h1>
 
 <p align="center">
-  <b>Generate fully working REST APIs with GPT or Gemini, instantly, from a simple prompt file.<br>
-  <i>Perfect for developers, testers, and teams simulating APIs before the backend is ready.</i></b>
+  <b>Describe an API in plain English, and get a live, stateful, and mockable REST or GraphQL server in seconds.</b>
+  <br>
+  <i>Powered by FastAPI, Vue.js, Docker, and your choice of OpenAI's GPT or Google's Gemini.</i>
 </p>
 
 <p align="center">
-  <a href="#features"><img src="https://img.shields.io/badge/AI%20API%20Generator-GPT%20%7C%20Gemini-blueviolet"/></a>
-  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-green.svg"/></a>
-  <a href="https://github.com/Mo-Ko/MockGen/issues"><img src="https://img.shields.io/github/issues/Mo-Ko/MockGen"/></a>
+  <a href="https://github.com/Mo-Ko/MockGen/actions/workflows/ci.yml"><img src="https://github.com/Mo-Ko/MockGen/actions/workflows/ci.yml/badge.svg" alt="CI Status"/></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="MIT License"/></a>
+  <a href="https://github.com/Mo-Ko/MockGen/issues"><img src="https://img.shields.io/github/issues/Mo-Ko/MockGen" alt="GitHub Issues"/></a>
+  <a href="https://github.com/Mo-Ko/MockGen/commits/master"><img src="https://img.shields.io/github/last-commit/Mo-Ko/MockGen" alt="Last Commit"/></a>
+  <a href="https://github.com/Mo-Ko/MockGen/stargazers"><img src="https://img.shields.io/github/stars/Mo-Ko/MockGen?style=social" alt="GitHub Stars"/></a>
 </p>
-
-<!-- SEO Meta Tags -->
-<meta name="description" content="MockGen is an open-source AI-powered mock API generator. Instantly generate fake REST APIs with GPT or Gemini, serve OpenAPI mock servers, and simulate endpoints using Docker and FastAPI."/>
-<meta name="keywords" content="mock api generator, ai api generator, generate api with GPT, fake REST APIs with LLM, OpenAPI mock server with AI, mock server with Docker, MockGen, open source"/>
 
 ---
-
 
 ## 🚀 What is MockGen?
 
-**MockGen** is an open-source tool that uses Large Language Models (LLMs) like GPT or Gemini to generate fully functional mock REST APIs from a simple `.prompt` file. It instantly creates endpoints, schemas, and logic—no backend code required. Serve both static and dynamic endpoints, manage everything via a React frontend, and run the whole stack with Docker.
+**MockGen** is an open-source tool that uses Large Language Models (LLMs) to generate fully functional mock APIs from a simple text description. It instantly creates schemas and deploys live endpoints for both REST (OpenAPI) and GraphQL. The vision is to create truly intelligent, stateful mock servers for developers who need to simulate a backend that doesn't exist yet.
 
 ---
 
-## 📁 Project Structure
+## ✨ Core Features
 
+-   **AI-Powered Schema Generation**: Instantly create OpenAPI (REST) and SDL (GraphQL) schemas using GPT or Gemini.
+-   **Dynamic Mock Endpoints**: The generated endpoints are live and interactive from the moment they are created.
+-   **Service-Oriented Architecture**: A clean backend design separates concerns into services, routers, and configuration for maximum maintainability.
+-   **Modern Frontend Stack**: The Vue.js frontend is professionally structured with a dedicated API service layer and **Pinia** for state management.
+-   **Unified FastAPI Backend**: A high-performance Python backend serves both the API mocks and the frontend application on a single port.
+-   **Dockerized**: A multi-stage Dockerfile provides a simple setup for the entire stack.
+-   **CI/CD Ready**: Includes a GitHub Actions workflow for linting, testing, and building.
+
+---
+
+## 🏁 Getting Started
+
+### Local Development (Recommended Method)
+
+For the best experience and to access dynamically generated APIs, it is recommended to run the frontend and backend services separately.
+
+**1. Start the Backend (FastAPI):**
+```bash
+# Navigate to the backend directory
+cd backend
+
+# Create and activate a virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: `venv\Scripts\activate`
+
+# Install dependencies with Poetry
+pip install poetry
+poetry install
+
+# Configure your environment (add AI API keys)
+cp .env.example .env
+nano .env
+
+# Run the development server
+uvicorn mockapi.main:app --reload
 ```
-MockGen/
-├── backend/
-│   ├── src/
-│   ├── pyproject.toml
-│   └── ...
-├── frontend/
-│   ├── src/
-│   ├── package.json
-│   └── ...
-├── docker-compose.yml
-├── Dockerfile
-├── .env.example
-└── docs/
-    ├── PromptSpec.md
-    ├── Architecture.md
-    ├── Configuration.md
-    └── LLM-Integration.md
+The backend will be available at `http://localhost:8000`.
+
+**2. Start the Frontend (Vue.js):**
+```bash
+# In a new terminal, navigate to the frontend directory
+cd frontend
+
+# Install dependencies and run the server
+npm install
+npm run dev
 ```
+Access the MockGen UI at `http://localhost:5173`.
 
-See [docs/PromptSpec.md](docs/PromptSpec.md) for the full prompt DSL and examples.
+### Docker (Known Issue)
 
-See [docs/LLM-Integration.md](docs/LLM-Integration.md) for details
-
-See [docs/Architecture.md](docs/Architecture.md) for internal details
-
-See [`backend/pyproject.toml`](backend/pyproject.toml) for backend deps
-
-- See [`frontend/package.json`](frontend/package.json) for frontend deps
-
-## 📝 License
-
-MIT License. Anyone can use, fork, and build on this project. Please credit the original author.
-
-## 🤝 Contributing & Issues
-
-- PRs and issues welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) (coming soon)
-- For bugs, open an issue on GitHub
-
-# MockGen 
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Mo-Ko/MockGen/main/docs/logo.png" alt="MockGen-AI Logo" width="120"/>
-</p>
-
-<h1 align="center">MockAPI-AI: AI-Powered Mock API Generator</h1>
-
-<p align="center">
-  <b>Generate fully working REST APIs with GPT or Gemini, instantly, from a simple prompt file.<br>
-  <i>Perfect for developers, testers, and teams simulating APIs before the backend is ready.</i></b>
-</p>
-
-<p align="center">
-  <a href="#features"><img src="https://img.shields.io/badge/AI%20API%20Generator-GPT%20%7C%20Gemini-blueviolet"/></a>
-  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-green.svg"/></a>
-  <a href="https://github.com/Mo-Ko/mockapi-ai/issues"><img src="https://img.shields.io/github/issues/Mo-Ko/mockapi-ai"/></a>
-</p>
-
-<!-- SEO Meta Tags -->
-<meta name="description" content="MockAPI-AI is an open-source AI-powered mock API generator. Instantly generate fake REST APIs with GPT or Gemini, serve OpenAPI mock servers, and simulate endpoints using Docker and FastAPI."/>
-<meta name="keywords" content="mock api generator, ai api generator, generate api with GPT, fake REST APIs with LLM, OpenAPI mock server with AI, mock server with Docker, mockapi-ai, open source"/>
-
----
-
-## 🚀 What is MockAPI-AI?
-
-**MockAPI-AI** is an open-source tool that uses Large Language Models (LLMs) like GPT or Gemini to generate fully functional mock REST APIs from a simple `.prompt` file. It instantly creates endpoints, schemas, and logic—no backend code required. Serve both static and dynamic endpoints, manage everything via a React frontend, and run the whole stack with Docker.
-
----
-
-## ✨ Features
-
-- **AI-Powered Mock API Generator**: Instantly create fake REST APIs using GPT or Gemini
-- **Prompt-Driven**: Define endpoints and logic in a simple `.prompt` file (OpenAPI-like or DSL)
-- **Dynamic & Static Endpoints**: Serve both static and LLM-generated responses
-- **Unified FastAPI Backend**: All traffic (frontend & backend) via FastAPI on port 8000
-- **React Frontend**: Manage prompts and endpoints visually
-- **Dockerized**: Multi-stage Docker build (Node + Python), easy to run anywhere
-- **Configurable**: Supports `.env`, `config.py`, and environment overrides
-- **Great for Teams**: Simulate APIs before the real backend exists
-
----
-
-## 🏁 Quick Start (Docker Compose)
+**Important:** Due to an architectural issue where dynamically added routes are not recognized by the production server, running MockGen in Docker is currently not fully functional for accessing generated endpoints. This is a high-priority issue being tracked in [**Issue #1**](https://github.com/Mo-Ko/MockGen/issues/1).
 
 ```bash
-git clone https://github.com/Mo-Ko/mockapi-ai.git
-cd mockapi-ai
-docker-compose up --build
-```
-
-- Access the app at [http://localhost:8000](http://localhost:8000)
-- Frontend and backend are both served from the same port!
-
+# This will build and run the services, but dynamic mocks will return 404.
+docker-compose up --build```
 ---
 
-## 📁 Project Structure
+## 📚 In-Depth Documentation
 
-```
-mockapi-ai/
-├── backend/
-│   ├── src/
-│   ├── pyproject.toml
-│   └── ...
-├── frontend/
-│   ├── src/
-│   ├── package.json
-│   └── ...
-├── docker-compose.yml
-├── Dockerfile
-├── .env.example
-└── docs/
-    ├── PromptSpec.md
-    ├── Architecture.md
-    ├── Configuration.md
-    └── LLM-Integration.md
-```
-
----
-
-## ⚙️ Configuration
-
-- **.env**: Set environment variables (see `.env.example`)
-- **config.py**: Advanced config for backend
-- **APP_ROOT**: Root directory for the app (default: `/app`)
-- **STATIC_DIR**: Where built frontend assets are served from (default: `/app/static`)
-
-See [docs/Configuration.md](docs/Configuration.md) for full details.
-
----
-
-## 📝 Prompt File Format
-
-Define your API in a `.prompt` file using a simple, OpenAPI-inspired structure. Example:
-
-```yaml
-# users.prompt
-endpoint: /users
-method: GET
-response:
-  - id: integer
-  - name: string
-  - email: string
-```
-
-See [docs/PromptSpec.md](docs/PromptSpec.md) for the full prompt DSL and examples.
-
----
-
-## 🤖 LLM Integration
-
-- Supports **OpenAI GPT** and **Google Gemini** (configurable)
-- LLMs generate response schemas, fake data, and dynamic logic
-- Fallback strategies if LLM is unavailable
-- See [docs/LLM-Integration.md](docs/LLM-Integration.md) for details
-
----
-
-## 🔌 Advanced Usage & Endpoints
-
-- Hot-reload endpoints by editing `.prompt` files
-- Serve static files from `/static`
-- All API endpoints under `/api/`
-- Health check at `/health`
-- See [docs/Architecture.md](docs/Architecture.md) for internal details
-
----
-
-## 📦 Dependencies
-
-- Python 3.10+
-- FastAPI, Uvicorn, Poetry
-- Node.js (for frontend build)
-- See [`backend/pyproject.toml`](backend/pyproject.toml) for backend deps
-- See [`frontend/package.json`](frontend/package.json) for frontend deps
+-   [**Architecture.md**](./docs/Architecture.md): A deep dive into the project's structure and data flow.
+-   [**Configuration.md**](./docs/Configuration.md): How to configure the application using environment variables and Pydantic settings.
+-   [**LLM-Integration.md**](./docs/LLM-Integration.md): Details on the AI prompting strategy and future plans with LangChain.
 
 ---
 
 ## 📝 License
 
-MIT License. Anyone can use, fork, and build on this project. Please credit the original author.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 
 ## 🤝 Contributing & Issues
 
-- PRs and issues welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) (coming soon)
-- For bugs, open an issue on GitHub
+Contributions, issues, and feature requests are welcome! Please check the [issues page](https://github.com/Mo-Ko/MockGen/issues) for ongoing work.
 
 ---
 
-## 🙏 Credits / Author
+## 🙏 Author
 
-Created by **Mohsin Kokab**  
-Email: moko.lums@gmail.com  
-GitHub: [Mo-Ko](https://github.com/Mo-Ko)  
-LinkedIn: [kokab](https://www.linkedin.com/in/kokab/)
+Created by **Mohsin Kokab**
+-   **GitHub**: [@Mo-Ko](https://github.com/Mo-Ko)
+-   **LinkedIn**: [Mohsin Kokab](https://www.linkedin.com/in/kokab/)

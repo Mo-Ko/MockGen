@@ -3,7 +3,7 @@
     class="min-h-screen bg-gray-900 flex flex-col items-center justify-start py-10 px-4"
   >
     <h1 class="text-3xl md:text-4xl font-bold text-white mb-8 text-center">
-      AI Mock API Generator
+      MockGen: AI-Powered Mock API Generator
     </h1>
     <HealthStatus class="fixed bottom-5 right-5 z-50" />
     <div class="w-full max-w-2xl bg-gray-800 rounded-lg shadow-lg p-6 mb-8">

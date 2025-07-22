@@ -11,7 +11,7 @@ from mockapi.core.dependencies import get_settings
 settings = get_settings()
 
 app = FastAPI(
-    title="AI Mock API Generator",
+    title="MockGen: AI-Powered Mock API Generator",
     docs_url="/docs",
     redoc_url="/redoc"
 )

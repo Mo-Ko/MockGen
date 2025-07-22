@@ -1,45 +1,45 @@
 # Configuration Guide for MockGen
 
-This guide explains all configuration options, environment variables, and override strategies for MockGen.
+This guide explains all configuration options for MockGen, focusing on the backend.
 
-## Environment Variables
+## Primary Configuration: `.env` File
 
-- `APP_ROOT`: Root directory for the app (default: `/app`)
-- `PYTHONPATH`: Python import path (default: `/app/src`)
-- `STATIC_DIR`: Where built frontend assets are served from (default: `/app/static`)
-- `GENMOCK_PORT`: Port to expose (default: `8000`)
-- `OPENAI_API_KEY`, `GEMINI_API_KEY`: LLM provider keys
+The primary method for providing secrets and environment-specific settings is via a `.env` file located in the `backend/` directory. You can create one by copying the example:
 
-## .env File
-
-Copy `.env.example` to `.env` and set your secrets and overrides.
-
-```
-APP_ROOT=/app
-PYTHONPATH=/app/src
-STATIC_DIR=/app/static
-GENMOCK_PORT=8000
-OPENAI_API_KEY=sk-...
-GEMINI_API_KEY=...your-key...
+```bash
+cd backend
+cp .env.example .env
 ```
 
-## Docker & Compose
+You **must** edit this file to add your API keys for the LLM providers you wish to use.
 
-- All env vars are passed into the container
-- `docker-compose.override.yml` can override commands, volumes, ports for dev
-- Hot-reload enabled in dev mode
+```dotenv
+# backend/.env
 
-## config.py
+# Add your secret API keys here. You only need to provide one.
+OPENAI_API_KEY="sk-..."
+GEMINI_API_KEY="ai..."
+```
 
-- Advanced backend config (logging, LLM provider, etc)
-- Override via env vars or edit file
+## Advanced Configuration: `config.py`
 
-## Tips
+MockGen uses a robust, type-safe configuration system powered by Pydantic, located at `backend/src/mockapi/core/config.py`. This file is the single source of truth for all settings.
 
-- Use `.env` for secrets, not in code
-- For production, set only needed env vars
+It defines two classes:
+1.  `AppSettings`: Contains static application constants that define the application's core behavior, such as LLM model names and validation rules. These are not meant to be changed by the user.
+2.  `EnvironmentSettings`: This class automatically reads from environment variables or the `.env` file. It validates their types and provides them to the application.
 
-## See Also
+## All Environment Variables
 
-- [../README.md](../README.md)
-- [Architecture.md](Architecture.md)
+The `EnvironmentSettings` class recognizes the following variables:
+
+| Variable         | Description                                                      | Default      |
+| ---------------- | ---------------------------------------------------------------- | ------------ |
+| `OPENAI_API_KEY` | Your secret API key for OpenAI.                                  | `None`       |
+| `GEMINI_API_KEY` | Your secret API key for Google's Gemini.                         | `None`       |
+| `STATIC_DIR`     | The absolute path to the built frontend assets.                  | `None`       |
+| `BASE_SCHEMA_DIR`| The directory where generated schemas and history are saved.     | `"schemas"`  |
+
+## Docker & Docker Compose
+
+When running via `docker-compose.yml`, the `env_file` directive automatically loads the `.env` file into the container. The `STATIC_DIR` is also explicitly set in the `docker-compose.yml` environment to `/app/static`, which is the correct path inside the container.

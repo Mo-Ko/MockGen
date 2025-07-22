@@ -43,8 +43,11 @@ class EnvironmentSettings(BaseSettings):
     STATIC_DIR: str | None = None
     BASE_SCHEMA_DIR: str = "schemas"
 
+    # Load .env file if APP_ROOT is not set
+    if not os.getenv("APP_ROOT"):
+        env_path = Path(__file__).resolve().parent.parent.parent.parent / ".env"
     model_config = SettingsConfigDict(
-        env_file=".env",
+        env_file=env_path if env_path.exists() else ".env",
         env_file_encoding="utf-8",
         extra="ignore"
     )
