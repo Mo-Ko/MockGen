@@ -1,0 +1,40 @@
+# Environment & Secrets
+.env
+.env.*
+.env.*.local
+.env.local
+!.env.example
+
+# Caches & Artifacts
+**/__pycache__/
+**/.pytest_cache/
+*.egg-info/
+*.py[cod]
+build/
+dist/
+
+# Frontend specific
+frontend/dist/
+
+# Dependencies & Virtual Environments
+**/venv/
+**/.venv/
+**/node_modules/
+
+# Logs & Temporary Files
+*.log
+logs/
+log/
+*.swp
+*.swo
+
+# IDE & Editor Directories
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln```
+
+
+backend/schemas/*

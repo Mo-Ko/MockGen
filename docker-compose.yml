@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+  app:
+    # We will build the image manually, so this build block is for reference
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # The image we build manually will be used here
+    image: genmock:latest
+    container_name: genmock-app
+    ports:
+      - "${GENMOCK_PORT:-8000}:8000"
+    env_file:
+      - .env
+    environment:
+      - APP_ROOT=/app
+      - PYTHONPATH=/app/src
+      - STATIC_DIR=/app/static
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "httpx", "http://localhost:8000/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 30s

@@ -1,0 +1,39 @@
+# Version control
+.git/
+.gitignore
+
+# Docker specific files
+docker-compose.yml
+docker-compose.override.yml
+.dockerignore
+
+# All local environment files & secrets
+.env
+.env.*
+.env.*.local
+.env.local
+
+# Local dependencies
+**/node_modules/
+**/venv/
+**/.venv/
+
+# Caches and artifacts
+**/__pycache__/
+**/.pytest_cache/
+*.egg-info/
+
+# User-generated or non-essential data
+**/schemas/ # Ignore generated schemas
+
+# Documentation and non-essential files
+README.md
+*.md
+
+# IDE, OS, and log files
+.vscode/
+.idea/
+.DS_Store
+*.log
+logs/
+log/

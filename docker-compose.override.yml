@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  # Override the backend service for development
+  app:
+    command: ["poetry", "run", "uvicorn", "mockapi.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+    volumes:
+      - ./backend/src:/app/src
+    restart: "no"
+    healthcheck:
+      disable: true
+
+  # Add a new service for the frontend development server
+  frontend-dev:
+    image: node:22-alpine
+    container_name: genmock-frontend-dev
+    command: sh -c "npm install && npm run dev"
+    working_dir: /app/frontend
+    ports:
+      - "5173:5173" # Expose Vite/React/Vue dev server port
+    volumes:
+      - ./frontend:/app/frontend
+      - frontend_modules:/app/frontend/node_modules # Persist dependencies
+    restart: "no"
+
+# Define the named volume to persist frontend dependencies
+volumes:
+  frontend_modules:
