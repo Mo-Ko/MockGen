@@ -1,7 +1,5 @@
-# MockGen
-
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Mo-Ko/mockgen/main/docs/logo.png" alt="MockGen Logo" width="120"/>
+  <img src="https://raw.githubusercontent.com/Mo-Ko/MockGen/main/docs/logo.png" alt="MockGen Logo" width="120"/>
 </p>
 <h1 align="center">MockGen: AI-Powered Mock API Generator</h1>
 
@@ -9,14 +7,19 @@
   <b>Generate fully working REST APIs with GPT or Gemini, instantly, from a simple prompt file.<br>
   <i>Perfect for developers, testers, and teams simulating APIs before the backend is ready.</i></b>
 </p>
-  <a href="https://github.com/Mo-Ko/mockgen/issues"><img src="https://img.shields.io/github/issues/Mo-Ko/mockgen"/></a>
+
+<p align="center">
+  <a href="#features"><img src="https://img.shields.io/badge/AI%20API%20Generator-GPT%20%7C%20Gemini-blueviolet"/></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-green.svg"/></a>
+  <a href="https://github.com/Mo-Ko/MockGen/issues"><img src="https://img.shields.io/github/issues/Mo-Ko/MockGen"/></a>
 </p>
 
 <!-- SEO Meta Tags -->
 <meta name="description" content="MockGen is an open-source AI-powered mock API generator. Instantly generate fake REST APIs with GPT or Gemini, serve OpenAPI mock servers, and simulate endpoints using Docker and FastAPI."/>
-<meta name="keywords" content="mock api generator, ai api generator, generate api with GPT, fake REST APIs with LLM, OpenAPI mock server with AI, mock server with Docker, mockgen, open source"/>
+<meta name="keywords" content="mock api generator, ai api generator, generate api with GPT, fake REST APIs with LLM, OpenAPI mock server with AI, mock server with Docker, MockGen, open source"/>
 
 ---
+
 
 ## 🚀 What is MockGen?
 
@@ -27,7 +30,7 @@
 ## 📁 Project Structure
 
 ```
-mockgen/
+MockGen/
 ├── backend/
 │   ├── src/
 │   ├── pyproject.toml
@@ -65,10 +68,10 @@ MIT License. Anyone can use, fork, and build on this project. Please credit the 
 - PRs and issues welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) (coming soon)
 - For bugs, open an issue on GitHub
 
-# MockAPI-AI
+# MockGen 
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Mo-Ko/mockapi-ai/main/docs/logo.png" alt="MockAPI-AI Logo" width="120"/>
+  <img src="https://raw.githubusercontent.com/Mo-Ko/MockGen/main/docs/logo.png" alt="MockGen-AI Logo" width="120"/>
 </p>
 
 <h1 align="center">MockAPI-AI: AI-Powered Mock API Generator</h1>
