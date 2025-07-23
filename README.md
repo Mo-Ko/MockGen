@@ -27,13 +27,13 @@
 
 ## ✨ Core Features
 
--   **AI-Powered Schema Generation**: Instantly create OpenAPI (REST) and SDL (GraphQL) schemas using GPT or Gemini.
--   **Dynamic Mock Endpoints**: The generated endpoints are live and interactive from the moment they are created.
--   **Service-Oriented Architecture**: A clean backend design separates concerns into services, routers, and configuration for maximum maintainability.
--   **Modern Frontend Stack**: The Vue.js frontend is professionally structured with a dedicated API service layer and **Pinia** for state management.
--   **Unified FastAPI Backend**: A high-performance Python backend serves both the API mocks and the frontend application on a single port.
--   **Dockerized**: A multi-stage Dockerfile provides a simple setup for the entire stack.
--   **CI/CD Ready**: Includes a GitHub Actions workflow for linting, testing, and building.
+- **AI-Powered Schema Generation**: Instantly create OpenAPI (REST) and SDL (GraphQL) schemas using GPT or Gemini.
+- **Dynamic Mock Endpoints**: The generated endpoints are live and interactive from the moment they are created.
+- **Service-Oriented Architecture**: A clean backend design separates concerns into services, routers, and configuration for maximum maintainability.
+- **Modern Frontend Stack**: The Vue.js frontend is professionally structured with a dedicated API service layer and **Pinia** for state management.
+- **Unified FastAPI Backend**: A high-performance Python backend serves both the API mocks and the frontend application on a single port.
+- **Dockerized**: A multi-stage Dockerfile provides a simple setup for the entire stack.
+- **CI/CD Ready**: Includes a GitHub Actions workflow for linting, testing, and building.
 
 ---
 
@@ -44,6 +44,7 @@
 For the best experience and to access dynamically generated APIs, it is recommended to run the frontend and backend services separately.
 
 **1. Start the Backend (FastAPI):**
+
 ```bash
 # Navigate to the backend directory
 cd backend
@@ -63,9 +64,11 @@ nano backend/.env
 # Run the development server
 uvicorn mockapi.main:app --reload
 ```
+
 The backend will be available at `http://localhost:8000`.
 
 **2. Start the Frontend (Vue.js):**
+
 ```bash
 # In a new terminal, navigate to the frontend directory
 cd frontend
@@ -74,6 +77,7 @@ cd frontend
 npm install
 npm run dev
 ```
+
 Access the MockGen UI at `http://localhost:5173`.
 
 ### Docker Compose
@@ -84,13 +88,14 @@ Access the MockGen UI at `http://localhost:5173`.
 # This will build and run the services. Dynamic endpoint support is being improved.
 docker-compose up --build
 ```
+
 ---
 
 ## 📚 In-Depth Documentation
 
--   [**Architecture.md**](./docs/Architecture.md): A deep dive into the project's structure and data flow.
--   [**Configuration.md**](./docs/Configuration.md): How to configure the application using environment variables and Pydantic settings.
--   [**LLM-Integration.md**](./docs/LLM-Integration.md): Details on the AI prompting strategy and future plans with LangChain.
+- [**Architecture.md**](./docs/Architecture.md): A deep dive into the project's structure and data flow.
+- [**Configuration.md**](./docs/Configuration.md): How to configure the application using environment variables and Pydantic settings.
+- [**LLM-Integration.md**](./docs/LLM-Integration.md): Details on the AI prompting strategy and future plans with LangChain.
 
 ---
 
@@ -109,5 +114,6 @@ Contributions, issues, and feature requests are welcome! Please check the [issue
 ## 🙏 Author
 
 Created by **Mohsin Kokab**
--   **GitHub**: [@Mo-Ko](https://github.com/Mo-Ko)
--   **LinkedIn**: [Mohsin Kokab](https://www.linkedin.com/in/kokab/)
+
+- **GitHub**: [@Mo-Ko](https://github.com/Mo-Ko)
+- **LinkedIn**: [Mohsin Kokab](https://www.linkedin.com/in/kokab/)
