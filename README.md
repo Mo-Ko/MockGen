@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./docs/mockgen-logo.png" alt="MockGen Logo" width="150"/>
+  <img src="./docs/MockGen-Logo.png" alt="MockGen Logo" />
 </p>
 <h1 align="center">MockGen: AI-Powered REST & GraphQL Mock API Generator</h1>
 
@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Mo-Ko/MockGen/actions/workflows/ci.yml"><img src="https://github.com/Mo-Ko/MockGen/actions/workflows/ci.yml/badge.svg" alt="CI Status"/></a>
+ 
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="MIT License"/></a>
   <a href="https://github.com/Mo-Ko/MockGen/issues"><img src="https://img.shields.io/github/issues/Mo-Ko/MockGen" alt="GitHub Issues"/></a>
   <a href="https://github.com/Mo-Ko/MockGen/commits/master"><img src="https://img.shields.io/github/last-commit/Mo-Ko/MockGen" alt="Last Commit"/></a>
