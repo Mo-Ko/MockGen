@@ -25,7 +25,9 @@ MockGen/
 │   │   ├── schemas/         # Pydantic models for request/response validation
 │   │   └── services/        # The core application logic
 │   ├── tests/               # Pytest tests
-│   └── pyproject.toml
+│   ├── pyproject.toml
+│   ├── .env.example         # Example environment file
+│   └── .env                 # Your actual environment file (not committed)
 ├── frontend/
 │   ├── src/
 │   │   ├── components/      # Reusable Vue components
@@ -34,7 +36,6 @@ MockGen/
 │   └── package.json
 ├── docker-compose.yml
 ├── Dockerfile
-└── backend/.env.example
 ```
 
 ## Key Backend Modules
@@ -47,7 +48,7 @@ The backend follows a clean, service-oriented architecture.
 -   `mockapi/services/ai_client.py`: The dedicated **AI connector**. Its sole responsibility is to build prompts from templates, communicate with the LLM providers (OpenAI/Gemini), and parse the structured JSON response.
 -   `mockapi/services/mock_manager.py`: The **state manager** for mock APIs. It dynamically creates and mounts new API routers onto the main FastAPI application at runtime.
 -   `mockapi/services/graphql_handler.py`: A specialized module that dynamically creates an executable GraphQL schema and mock resolvers using the `ariadne` library.
--   `mockapi/core/config.py`: The single source of truth for all configuration, using Pydantic to manage both application constants and environment variables.
+-   `mockapi/core/config.py`: The single source of truth for all configuration, using Pydantic to manage both application constants and environment variables. Environment variables are loaded from `backend/.env` in local/dev, or injected by Docker Compose in containers.
 -   `mockapi/prompts/`: A directory containing the structured prompt templates that guide the AI's schema generation, forming the "intelligent" core of the application.
 
 ## Data Flow for API Generation

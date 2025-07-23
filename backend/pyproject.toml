@@ -3,7 +3,6 @@ name = "GenMock"
 version = "0.1.0"
 description = "An AI-powered mock API generator."
 authors = ["Mohsin Kokab <moko.lums@gmail.com>"]
-readme = "README.md"
 packages = [{include = "mockapi", from = "src"}]
 
 
@@ -11,26 +10,29 @@ packages = [{include = "mockapi", from = "src"}]
 python = ">=3.10,<4.0"
 # Use caret (^) for versioning to allow non-breaking updates
 fastapi = "^0.116.0"
-uvicorn = {extras = ["standard"], version = "^0.35.0"}
 pydantic = "^2.11.0"
 pydantic-settings = "^2.10.0"
 faker = "^37.4.0"
-httpx = "^0.28.0"
-python-dotenv = "^1.0.0"
 ariadne = "^0.26.0"
-slowapi = "^0.1.9"
 better-profanity = "^0.7.0"
 google-generativeai = "^0.8.0"
 aiofiles = "^24.1.0"
 openai = "^1.38.0"
-langchain = "^0.3.0"
-langchain-openai = "^0.3.0"
-langchain-google-genai = "^2.0.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.0.0"
 pytest-asyncio = "^0.23.0"
+deptry = "^0.23.0"
+
+[tool.poetry.group.runtime.dependencies]
+uvicorn = {extras = ["standard"], version = "^0.35.0"}
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.deptry]
+known_first_party = ["mockapi"]
+
+[tool.deptry.per_rule_ignores]
+DEP002 = ["uvicorn"]

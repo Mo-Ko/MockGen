@@ -1,14 +1,16 @@
+
 # Configuration Guide for MockGen
 
 This guide explains all configuration options for MockGen, focusing on the backend.
 
-## Primary Configuration: `.env` File
+## Primary Configuration: `backend/.env` File
 
 The primary method for providing secrets and environment-specific settings is via a `.env` file located in the `backend/` directory. You can create one by copying the example:
 
 ```bash
 cd backend
 cp .env.example .env
+# Edit backend/.env and add your API keys
 ```
 
 You **must** edit this file to add your API keys for the LLM providers you wish to use.
@@ -17,8 +19,8 @@ You **must** edit this file to add your API keys for the LLM providers you wish 
 # backend/.env
 
 # Add your secret API keys here. You only need to provide one.
-OPENAI_API_KEY="sk-..."
-GEMINI_API_KEY="ai..."
+OPENAI_API_KEY=sk-...
+GEMINI_API_KEY=ai...
 ```
 
 ## Advanced Configuration: `config.py`
@@ -42,4 +44,10 @@ The `EnvironmentSettings` class recognizes the following variables:
 
 ## Docker & Docker Compose
 
-When running via `docker-compose.yml`, the `env_file` directive automatically loads the `.env` file into the container. The `STATIC_DIR` is also explicitly set in the `docker-compose.yml` environment to `/app/static`, which is the correct path inside the container.
+When running via `docker-compose.yml`, the `env_file` directive automatically loads the `backend/.env` file into the container. The `STATIC_DIR` is also explicitly set in the `docker-compose.yml` environment to `/app/static`, which is the correct path inside the container.
+
+The healthcheck now uses `curl` for endpoint checks.
+
+## Dependency Management
+
+Dependencies are managed with Poetry. `uvicorn` is included in the `[tool.poetry.group.runtime.dependencies]` group. Use Poetry for all dependency management and installation.

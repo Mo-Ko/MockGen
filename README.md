@@ -58,7 +58,7 @@ poetry install
 
 # Configure your environment (add AI API keys)
 cp .env.example .env
-nano .env
+nano backend/.env
 
 # Run the development server
 uvicorn mockapi.main:app --reload
@@ -76,13 +76,14 @@ npm run dev
 ```
 Access the MockGen UI at `http://localhost:5173`.
 
-### Docker (Known Issue)
+### Docker Compose
 
-**Important:** Due to an architectural issue where dynamically added routes are not recognized by the production server, running MockGen in Docker is currently not fully functional for accessing generated endpoints. This is a high-priority issue being tracked in [**Issue #1**](https://github.com/Mo-Ko/MockGen/issues/1).
+**Note:** Docker Compose now loads environment variables from `backend/.env` and sets `APP_ROOT=/app` inside the container. Healthchecks use `curl`.
 
 ```bash
-# This will build and run the services, but dynamic mocks will return 404.
-docker-compose up --build```
+# This will build and run the services. Dynamic endpoint support is being improved.
+docker-compose up --build
+```
 ---
 
 ## 📚 In-Depth Documentation

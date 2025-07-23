@@ -19,6 +19,9 @@ LABEL maintainer="Mohsin Kokab <moko.lums@gmail.com>"
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1
 
+# Install curl for health checks or other needs
+RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app
 
 # Copy dependency files and poetry from builder
@@ -30,7 +33,8 @@ COPY backend/pyproject.toml backend/poetry.lock* ./
 RUN poetry config virtualenvs.in-project true
 
 # Create the virtual environment and install dependencies
-RUN poetry install --no-interaction --no-root --only main
+RUN poetry install --no-interaction --no-root --with runtime
+
 
 # Copy the rest of the application code
 COPY --from=frontend-build /app/frontend/dist /app/static

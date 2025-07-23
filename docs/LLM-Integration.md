@@ -31,5 +31,4 @@ This document explains how MockGen uses Large Language Models (LLMs) like OpenAI
 ## See Also
 
 - [../README.md](../README.md)
-- [PromptSpec.md](PromptSpec.md)
 - [Architecture.md](Architecture.md)
