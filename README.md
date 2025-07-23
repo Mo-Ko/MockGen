@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Mo-Ko/MockGen/main/docs/logo.png" alt="MockGen Logo" width="120"/>
+  <img src="./docs/mockgen-logo.png" alt="MockGen Logo" width="150"/>
 </p>
 <h1 align="center">MockGen: AI-Powered REST & GraphQL Mock API Generator</h1>
 
